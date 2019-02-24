@@ -1,0 +1,31 @@
+.header {
+  background-color: rgb(227, 230, 235);
+  padding: 20px;
+
+  &__title {
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(54, 54, 54);
+  }
+}
+
+.nav {
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.12);
+  background-color: rgb(245, 247, 252);
+  max-width: 200px;
+  padding-top: 30px;
+
+  & ul {
+    list-style-type: none;
+
+  }
+
+  & li {
+    margin-top: 20px;
+    a {
+      color: rgb(54, 54, 54);
+    }
+  }
+}
+
+

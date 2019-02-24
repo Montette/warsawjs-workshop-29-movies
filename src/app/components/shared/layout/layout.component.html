@@ -1,0 +1,32 @@
+<div class="container-fluid main-container">
+  <header class="row header">
+    <div class="col">
+     <h1 class="header__title">My Library</h1>
+    </div>
+  </header>
+  <div class="row pl-0 pr-0">
+    <div class="col pl-0 pr-0">
+      <div class="container-fluid content">
+        <div class="row">
+            <div class="col-3 pl-0 pr-0 pt-100 nav">
+                <nav>
+                  <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="col">
+                <router-outlet></router-outlet>
+                <!-- <app-my-component></app-my-component> -->
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row my__footer">
+    <div class="col">
+    Hello world
+    </div>
+  </div>
+</div>
