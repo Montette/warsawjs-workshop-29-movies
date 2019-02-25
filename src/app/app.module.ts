@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { FilmDetailsComponent } from './components/films/film-details/film-details.component'
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     RatingComponent,
     PageNotFoundComponent,
     FilmDetailsComponent,
-    FilterPipe
+    FilterPipe,
+    SortPipe
 
   ],
   imports: [

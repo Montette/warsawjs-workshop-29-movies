@@ -15,6 +15,9 @@ export class FilmsComponent implements OnInit {
   public title = "Biblioteka filmów";
   public films$: Observable<Film[]>;
   filteredStatus: '';
+  property = '';
+  order = 1;
+
 
 
   constructor(private filmService: FilmsServiceService, private router: Router) { }
@@ -28,6 +31,11 @@ export class FilmsComponent implements OnInit {
 
   averageRating(rating: number[]): string {
     return ((rating.reduce((a, b) => a + b, 0) / rating.length).toFixed(2)).toString()
+  }
+
+  sortItems(prop: string) {
+    this.property = prop;
+    this.order = this.order * (-1);
   }
 
   ngOnInit() {
