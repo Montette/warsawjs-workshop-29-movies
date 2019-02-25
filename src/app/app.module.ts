@@ -16,6 +16,7 @@ import { RoutingModule } from './routing/routing.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FilmDetailsComponent } from './components/films/film-details/film-details.component'
 import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     LayoutComponent,
     RatingComponent,
     PageNotFoundComponent,
-    FilmDetailsComponent
+    FilmDetailsComponent,
+    FilterPipe
 
   ],
   imports: [

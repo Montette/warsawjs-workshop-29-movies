@@ -1,7 +1,7 @@
 <section class="films">
-     <input [(ngModel)]="filteredStatus" class="form-control" type="search" placeholder="Search product..." aria-label="Search">
+     <input [(ngModel)]="filteredStatus" class="form-control" type="search" placeholder="Search films..." aria-label="Search">
   <div class="films__list" *ngIf="films$ | async">
-    <mat-card class="films__film film" *ngFor="let film of films$ | async">
+    <mat-card class="films__film film" *ngFor="let film of films$ | async | filter:filteredStatus: 'title'">
       <mat-card-header class="film__header">
 
         <mat-card-title>{{ film.title }} ({{ film.year}})</mat-card-title>
