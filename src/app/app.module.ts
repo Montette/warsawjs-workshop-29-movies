@@ -18,6 +18,7 @@ import { FilmDetailsComponent } from './components/films/film-details/film-detai
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
+import { DropdownDirective } from './directives/dropdown.directive';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { SortPipe } from './pipes/sort.pipe';
     PageNotFoundComponent,
     FilmDetailsComponent,
     FilterPipe,
-    SortPipe
+    SortPipe,
+    DropdownDirective
 
   ],
   imports: [

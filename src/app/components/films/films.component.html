@@ -1,7 +1,17 @@
 <section class="films">
      <input [(ngModel)]="filteredStatus" class="form-control" type="search" placeholder="Search films..." aria-label="Search">
+     <!-- <div class="dropdown" appDropdown>
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        Filter products
+      </button>
+      <div class="dropdown-menu" appDropdown aria-labelledby="dropdownMenuButton"> -->
+        <button class="dropdown-item" (click)="sortItems('imdbRating')">Sort by IMDB ranking</button>
+        <button class="dropdown-item" (click)="sortItems('title')">Sort by title</button>
+      <!-- </div>
+    </div> -->
   <div class="films__list" *ngIf="films$ | async">
-    <mat-card class="films__film film" *ngFor="let film of films$ | async | filter:filteredStatus: 'title'">
+    <mat-card class="films__film film" *ngFor="let film of films$ | async | filter:filteredStatus: 'title' | sort:property:order">
       <mat-card-header class="film__header">
 
         <mat-card-title>{{ film.title }} ({{ film.year}})</mat-card-title>
