@@ -11,7 +11,7 @@
       <!-- </div>
     </div> -->
   <div class="films__list" *ngIf="films$">
-    <mat-card class="films__film film" *ngFor="let film of activePageDataChunk| filter:filteredStatus: 'title' | sort:property:order">
+    <mat-card class="films__film film" *ngFor="let film of activePageDataChunk| filter:filteredStatus: 'title':films$ | sort:property:order:films$">
       <mat-card-header class="film__header">
 
         <mat-card-title>{{ film.title }} ({{ film.year}})</mat-card-title>

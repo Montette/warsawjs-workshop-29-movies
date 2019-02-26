@@ -24,13 +24,13 @@ export class FilmsServiceService {
 
   private readonly routes = {
     films: `http://localhost:9000/films`,
-    film: (id: Number) => `http://localhost:9000/films/${id}`
+    film: (id: Number) => `http://localhost:9000/films/${id}`,
   }
 
   constructor(private http: HttpClient) {}
 
-  getFilms(): Observable < Film[] > {
-    return this.http.get < Film[] > (this.routes.films);
+  getFilms(): Observable < {data: Film[]} > {
+    return this.http.get < {data: Film[]} > (this.routes.films);
 
   }
 
@@ -43,6 +43,10 @@ export class FilmsServiceService {
 
   getFilm(id: number): Observable < Film > {
     return this.http.get < Film > (this.routes.film(id))
+  }
+
+  addFilm(film: object): Observable < Film > {
+    return this.http.post <Film > (this.routes.films, film);
   }
 
   countRating(rating: number[]): string {

@@ -5,12 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: any, filterString: string, propName: string): any {
+  transform(value: any, filterString: string, propName: string, films: any): any {
   
-    if(value === null || value.length === 0 || !filterString) {
+    if(!value || value.length === 0 || !filterString) {
       return value
     }
-    return value.filter(el => el[propName].toLowerCase().includes(filterString))
+    return films.filter(el => el[propName].toLowerCase().includes(filterString))
   }
 
 }

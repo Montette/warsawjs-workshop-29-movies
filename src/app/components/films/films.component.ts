@@ -18,7 +18,7 @@ export class FilmsComponent implements OnInit {
   order:number = 1;
    length: number;
    pageSize:number = 10;
-   pageSizeOptions: number[] = [5, 10, 25, 100];
+   pageSizeOptions: number[] = [5, 10, 25, 100, 200];
    activePageDataChunk: Film[];
 
 
@@ -49,9 +49,12 @@ export class FilmsComponent implements OnInit {
 
   ngOnInit() {
      this.filmService.getFilms().subscribe(result => {
-       this.films$ = result;
-       this.length = this.films$.length;
-       this.activePageDataChunk = this.films$.slice(0, this.pageSize)
+       
+       if(result.data.length > 0) {
+        this.films$ = result.data;
+        this.length = this.films$.length;
+        this.activePageDataChunk = this.films$.slice(0, this.pageSize);
+       }
      });   
   }
 
