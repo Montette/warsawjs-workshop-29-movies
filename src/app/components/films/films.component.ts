@@ -1,9 +1,7 @@
 import { FilmsServiceService } from './../../services/films-service.service';
 import { Component, OnInit } from '@angular/core';
 import Film from './film';
-import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import {PageEvent} from '@angular/material';
 
 @Component({
   selector: 'app-films',
@@ -29,9 +27,12 @@ export class FilmsComponent implements OnInit {
 
   removeFilm(id: number) {
 
-   return this.filmService.removeFilm(id).subscribe(() => {
-     this.router.navigate(['/films']);
-   });
+    this.filmService.removeFilm(id).subscribe();
+    const removingFilm = this.films$.find(el => el.id === id);
+   this.films$ = this.films$.filter(el => el !== removingFilm);
+   if(this.activePageDataChunk.includes(removingFilm)) {
+     this.activePageDataChunk = this.activePageDataChunk.filter(el => el !== removingFilm);
+   }
   }
 
   averageRating(rating: number[]): string {
@@ -62,6 +63,8 @@ export class FilmsComponent implements OnInit {
     let secondCut = firstCut + e.pageSize;
     this.activePageDataChunk = this.films$.slice(firstCut, secondCut);
   }
+
+ 
 
 }
 
