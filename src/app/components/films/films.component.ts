@@ -36,7 +36,8 @@ export class FilmsComponent implements OnInit {
   }
 
   averageRating(rating: number[]): string {
-    return ((rating.reduce((a, b) => a + b, 0) / rating.length).toFixed(2)).toString()
+    // return ((rating.reduce((a, b) => a + b, 0) / rating.length).toFixed(2)).toString()
+    return this.filmService.countRating(rating)
   }
 
   sortItems(prop: string) {

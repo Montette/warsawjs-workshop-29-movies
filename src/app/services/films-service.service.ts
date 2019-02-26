@@ -39,8 +39,14 @@ export class FilmsServiceService {
     console.log(id);
     console.log(this.routes.film(id));
     return this.http.delete < {} > (this.routes.film(id), httpOptions);
+  }
 
+  getFilm(id: number): Observable < Film > {
+    return this.http.get < Film > (this.routes.film(id))
+  }
 
+  countRating(rating: number[]): string {
+    return ((rating.reduce((a, b) => a + b, 0) / rating.length).toFixed(2)).toString()
   }
 
 }

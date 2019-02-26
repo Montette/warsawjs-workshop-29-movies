@@ -1,4 +1,4 @@
-<mat-card class="films__film film" >
+<mat-card *ngIf="film"class="films__film film" >
   <mat-card-header class="film__header">
 
     <mat-card-title>{{ film.title }} ({{ film.year}})</mat-card-title>
@@ -10,8 +10,7 @@
 
     <img class="film__image" mat-card-image src="{{film.posterurl}}">
     <mat-card-subtitle class="film__subtitle"><span class="font-weight-bold">Actors:</span> {{ film.actors.join(', ') }}</mat-card-subtitle>
-    <mat-card-subtitle class="film__subtitle"><span class="font-weight-bold">Description:</span> {{ film.storyline | slice:0:80}}...</mat-card-subtitle>
-    <a [routerLink]="['/films', film.id]"><button class="film__button" color="primary" mat-raised-button>See details</button></a>
+    <mat-card-subtitle class="film__subtitle"><span class="font-weight-bold">Description:</span> {{ film.storyline }}</mat-card-subtitle>
     <button class="film__button" color="accent" (click)="removeFilm(film.id)" mat-raised-button>Remove</button>
   </mat-card-content>
 </mat-card>
