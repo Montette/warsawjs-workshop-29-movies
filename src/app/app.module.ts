@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { DropdownDirective } from './directives/dropdown.directive';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { DropdownDirective } from './directives/dropdown.directive';
     HttpClientModule,
     MatButtonModule,
     RoutingModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import Film from './film';
 import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import {PageEvent} from '@angular/material';
 
 @Component({
   selector: 'app-films',
@@ -13,10 +14,14 @@ import { Router } from '@angular/router';
 
 export class FilmsComponent implements OnInit {
   public title = "Biblioteka filmów";
-  public films$: Observable<Film[]>;
-  filteredStatus: '';
-  property = '';
-  order = 1;
+  public films$: Film[];
+  filteredStatus:string = '';
+  property:string = '';
+  order:number = 1;
+   length: number;
+   pageSize:number = 10;
+   pageSizeOptions: number[] = [5, 10, 25, 100];
+   activePageDataChunk: Film[];
 
 
 
@@ -38,8 +43,24 @@ export class FilmsComponent implements OnInit {
     this.order = this.order * (-1);
   }
 
+
+
   ngOnInit() {
-     this.films$ = this.filmService.getFilms();
+     this.filmService.getFilms().subscribe(result => {
+       this.films$ = result;
+       this.length = this.films$.length;
+       this.activePageDataChunk = this.films$.slice(0, this.pageSize)
+     });   
+  }
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+  }
+
+  onPageChanged(e) {
+    let firstCut = e.pageIndex * e.pageSize;
+    let secondCut = firstCut + e.pageSize;
+    this.activePageDataChunk = this.films$.slice(firstCut, secondCut);
   }
 
 }

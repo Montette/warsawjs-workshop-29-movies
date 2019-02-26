@@ -10,8 +10,8 @@
         <button class="dropdown-item" (click)="sortItems('title')">Sort by title</button>
       <!-- </div>
     </div> -->
-  <div class="films__list" *ngIf="films$ | async">
-    <mat-card class="films__film film" *ngFor="let film of films$ | async | filter:filteredStatus: 'title' | sort:property:order">
+  <div class="films__list" *ngIf="films$">
+    <mat-card class="films__film film" *ngFor="let film of activePageDataChunk| filter:filteredStatus: 'title' | sort:property:order">
       <mat-card-header class="film__header">
 
         <mat-card-title>{{ film.title }} ({{ film.year}})</mat-card-title>
@@ -33,3 +33,5 @@
     </mat-card>
   </div>
 </section>
+<mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="onPageChanged($event)"> -->
+</mat-paginator> -
