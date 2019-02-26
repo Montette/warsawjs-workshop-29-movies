@@ -41,8 +41,8 @@ export class FilmsServiceService {
     return this.http.delete < {} > (this.routes.film(id), httpOptions);
   }
 
-  getFilm(id: number): Observable < Film > {
-    return this.http.get < Film > (this.routes.film(id))
+  getFilm(id: number): Observable < {data: Film} > {
+    return this.http.get < {data: Film} > (this.routes.film(id))
   }
 
   addFilm(film: object): Observable < Film > {

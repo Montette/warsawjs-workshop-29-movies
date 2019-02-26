@@ -26,7 +26,8 @@ export class FilmDetailsComponent implements OnInit {
       (params: Params) => {
         this.id = +params['id'];
         this.filmService.getFilm(this.id).subscribe(result => {
-          this.film = result;
+          
+          this.film = result.data[0];
         })
       }
     );
